@@ -21,7 +21,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
             if (!passwordMatch) {
                 return res
-                    .status(403)
+                    .status(401)
                     .json({ success: false, message: 'Invalid email or password' })
             }
 

@@ -13,12 +13,19 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     switch (req.method) {
         case 'POST':
+            let user_exists = await db.collection('users').findOne({ email: req.body.email })
+
+            if (user_exists) {
+                return res.status(200).json({ success: false, message: 'user already exists' })
+            }
+
             let new_user = await db
                 .collection('users')
                 .insertOne({ ...req.body, password: await hash(req.body.password), role: 'MEMBER' })
             return res.status(200).json({ success: true, data: new_user })
         case 'GET':
-            return res.status(200).json({ name: 'Getting users.....' })
+            let users = await db.collection('users').find().toArray()
+            return res.status(200).json({ success: true, data: users })
         default:
             return res.status(200).json({ message: 'Not supported' })
     }
