@@ -8,7 +8,7 @@ const hash = async (password: string) => {
     return hash
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async function Users(req: NextApiRequest, res: NextApiResponse) {
     let db = await getDatabase()
 
     switch (req.method) {

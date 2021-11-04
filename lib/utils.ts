@@ -1,3 +1,6 @@
+import { NextRequest, NextResponse } from 'next/server'
+import jwt from 'jsonwebtoken'
+
 export const server =
     process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : process.env.VERCEL_URL
 
@@ -15,4 +18,20 @@ export const getCurrentWeekInTheYear = () => {
     // Return array of year and week number
     return [d.getUTCFullYear(), weekNo]
     // return weekNo
+}
+
+export function auth(req: NextRequest) {
+    const token = req.cookies['token']
+
+    if (!token) {
+        return NextResponse.redirect('/signin')
+    }
+
+    const data = jwt.verify(token, process.env.JWT_SCRET)
+
+    if (!data['user']) {
+        return NextResponse.redirect('/signin')
+    }
+
+    return NextResponse.next()
 }

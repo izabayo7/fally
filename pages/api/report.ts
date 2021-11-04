@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { getDatabase } from '../../lib/db'
 import { getCurrentWeekInTheYear } from '../../lib/utils'
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async function Report(req: NextApiRequest, res: NextApiResponse) {
     let db = await getDatabase()
     switch (req.method) {
         case 'POST':

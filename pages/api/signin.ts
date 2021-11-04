@@ -4,7 +4,7 @@ import { getDatabase } from '../../lib/db'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async function Signin(req: NextApiRequest, res: NextApiResponse) {
     const db = await getDatabase()
 
     switch (req.method) {
