@@ -1,6 +1,14 @@
 import { NextResponse, NextRequest, NextFetchEvent } from 'next/server'
-import { auth } from '../../lib/utils'
+import jwt from 'jsonwebtoken'
 
 export async function middleware(req: NextRequest, ev: NextFetchEvent) {
-    return auth(req)
+    const token = req.cookies['token']
+
+    if (!token) return NextResponse.redirect('/signin')
+
+    const data = jwt.verify(token, process.env.JWT_SCRET)
+
+    if (!data) return NextResponse.redirect('/signin')
+
+    return NextResponse.next()
 }

@@ -20,13 +20,7 @@ export const getCurrentWeekInTheYear = () => {
     // return weekNo
 }
 
-export function auth(req: NextRequest) {
-    const token = req.cookies['token']
-
-    if (!token) {
-        return NextResponse.redirect('/signin')
-    }
-
+export function verifyToken(token: string) {
     const data = jwt.verify(token, process.env.JWT_SCRET)
 
     if (!data['user']) {
