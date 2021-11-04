@@ -9,10 +9,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     switch (req.method) {
         case 'POST':
-            const { email, password } = req.body
+            const { email, password } = JSON.parse(req.body)
 
             if (!email || !password) {
-                return res.status(403).json({ success: false, message: 'All fields are required' })
+                return res.status(401).json({ success: false, message: 'All fields are required' })
             }
 
             const user = await db.collection('users').findOne({ email })
@@ -39,7 +39,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                     path: '/'
                 })
             )
-            return res.status(200).json({ success: true })
+            return res.status(201).json({ success: true })
         default:
             res.status(401).json({ success: false })
     }

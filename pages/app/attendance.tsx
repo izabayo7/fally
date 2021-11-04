@@ -1,14 +1,14 @@
-import {Fragment} from 'react'
+import { Fragment } from 'react'
 import Head from 'next/head'
 import Nav from '../../components/Nav'
-import {server} from '../../lib/utils'
-import useSWR, {SWRConfig} from 'swr'
-import {User} from '../../lib/types'
+import { server } from '../../lib/utils'
+import useSWR, { SWRConfig } from 'swr'
+import { User } from '../../lib/types'
 import fetch from '../../lib/fetch'
 import React from 'react'
 
 function Users() {
-    const {data} = useSWR<{data: User[]}>(`${server}/api/users`)
+    const { data } = useSWR<{ data: User[] }>(`${server}/api/users`)
 
     const [presents, setPresents] = React.useState<string[]>([])
     const [visitors, setVisitors] = React.useState<string>('0')
@@ -119,7 +119,6 @@ function Users() {
         }
 
         try {
-
             let resp = await fetch(`${server}/api/report`, {
                 method: 'POST',
                 body: JSON.stringify(request)
@@ -140,7 +139,6 @@ function Users() {
         } catch (err) {
             console.error(err)
         }
-
     }
 
     return (
@@ -263,7 +261,7 @@ function Users() {
     )
 }
 
-export default function attendance({fallback}) {
+export default function attendance({ fallback }) {
     return (
         <Fragment>
             <Head>

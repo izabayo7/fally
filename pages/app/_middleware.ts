@@ -10,7 +10,9 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent) {
 
     const data = jwt.verify(token, process.env.JWT_SCRET)
 
-    console.log({ data })
+    if (!data['user']) {
+        return NextResponse.redirect('/signin')
+    }
 
     return NextResponse.next()
 }
