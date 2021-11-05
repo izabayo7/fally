@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import { Fragment } from 'react'
-import { useState } from 'react'
-import { server } from '../lib/utils'
+import {Fragment} from 'react'
+import {useState} from 'react'
+import {server} from '../lib/utils'
 import router from 'next/router'
 
 export default function Signin() {
@@ -12,7 +12,7 @@ export default function Signin() {
         try {
             let resp = await fetch(`${server}/api/signin`, {
                 method: 'POST',
-                body: JSON.stringify({ password, email })
+                body: JSON.stringify({password, email})
             })
 
             if (resp.status == 201) {
@@ -64,7 +64,7 @@ export default function Signin() {
                     <input
                         type="submit"
                         value="signin"
-                        className="bg-black text-white w-full py-3 rounded-md"
+                        className="bg-black text-white w-full py-3 rounded-md cursor-pointer"
                     />
                 </form>
             </section>

@@ -18,7 +18,8 @@ export default function users({report}) {
             </Head>
 
             <Nav />
-            <section className="grid place-items-center mt-20 font-primary">
+
+            {item ? <section className="grid place-items-center mt-20 font-primary">
                 <table className="table-auto border-collapse border border-gray-300">
                     <thead>
                         <tr className="bg-black text-white">
@@ -64,6 +65,8 @@ export default function users({report}) {
                     </tbody>
                 </table>
             </section>
+                : <section className="grid place-items-center mt-20"><p className="font-bold font-primary">No report</p></section>}
+
         </Fragment>
     )
 }
