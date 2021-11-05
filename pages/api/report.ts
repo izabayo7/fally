@@ -7,6 +7,16 @@ export default async function Report(req: NextApiRequest, res: NextApiResponse) 
     switch (req.method) {
         case 'POST':
             let req_data = JSON.parse(req.body)
+
+            let report_exists = await db.collection('reports').findOne({
+                sabbath_week: getCurrentWeekInTheYear()[1],
+                year: getCurrentWeekInTheYear()[0]
+            })
+
+            if (report_exists) {
+                return res.status(403).json({ sucess: true, message: 'Report already submitted' })
+            }
+
             await db.collection('reports').insertOne({
                 ...req_data,
                 sabbath_week: getCurrentWeekInTheYear()[1],

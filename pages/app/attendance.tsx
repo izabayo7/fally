@@ -1,14 +1,14 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react'
 import Head from 'next/head'
 import Nav from '../../components/Nav'
-import { server } from '../../lib/utils'
-import useSWR, { SWRConfig } from 'swr'
-import { User } from '../../lib/types'
+import {server} from '../../lib/utils'
+import useSWR, {SWRConfig} from 'swr'
+import {User} from '../../lib/types'
 import fetch from '../../lib/fetch'
 import React from 'react'
 
 function Users() {
-    const { data } = useSWR<{ data: User[] }>(`${server}/api/users`)
+    const {data} = useSWR<{data: User[]}>(`${server}/api/users`)
 
     const [presents, setPresents] = React.useState<string[]>([])
     const [visitors, setVisitors] = React.useState<string>('0')
@@ -142,21 +142,21 @@ function Users() {
     }
 
     return (
-        <section>
-            <table className="table-auto border-collapse border border-gray-300 font-primary">
-                <thead>
+        <section className="overflow-auto h-screen">
+            <table className="table-auto relative w-full border-collapse border border-gray-300 font-primary">
+                <thead >
                     <tr>
-                        <th className="border border-gray-200 p-4">No</th>
-                        <th className="border border-gray-200 p-4">Name</th>
-                        <th className="border border-gray-200 p-4">Yaje</th>
-                        <th className="border border-gray-200 p-4">Afite impamvu</th>
-                        <th className="border border-gray-200 p-4">Yasuye</th>
-                        <th className="border border-gray-200 p-4">Yarasuwe</th>
-                        <th className="border border-gray-200 p-4">Yarafashije</th>
-                        <th className="border border-gray-200 p-4">Yarafashijwe</th>
-                        <th className="border border-gray-200 p-4">Ararwaye</th>
-                        <th className="border border-gray-200 p-4">Yize 7</th>
-                        <th className="border border-gray-200 p-4">Yatangiye isabato</th>
+                        <th className="border sticky top-0 border-gray-200 p-4 bg-white">No</th>
+                        <th className="border sticky top-0 border-gray-200 p-4 bg-white">Name</th>
+                        <th className="border sticky top-0 border-gray-200 p-4 bg-white">Yaje</th>
+                        <th className="border  sticky top-0 border-gray-200 p-4 bg-white">Afite impamvu</th>
+                        <th className="border sticky top-0 border-gray-200 p-4 bg-white">Yasuye</th>
+                        <th className="border sticky top-0 border-gray-200 p-4 bg-white">Yarasuwe</th>
+                        <th className="border sticky top-0 border-gray-200 p-4 bg-white">Yarafashije</th>
+                        <th className="border sticky top-0 border-gray-200 p-4 bg-white">Yarafashijwe</th>
+                        <th className="border sticky top-0 border-gray-200 p-4 bg-white">Ararwaye</th>
+                        <th className="border sticky top-0 border-gray-200 p-4 bg-white">Yize 7</th>
+                        <th className="border sticky top-0 border-gray-200 p-4 bg-white">Yatangiye isabato</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -261,7 +261,7 @@ function Users() {
     )
 }
 
-export default function attendance({ fallback }) {
+export default function attendance({fallback}) {
     return (
         <Fragment>
             <Head>

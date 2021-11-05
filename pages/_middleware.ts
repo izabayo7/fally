@@ -6,5 +6,6 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent) {
     if (pathname == '/') {
         return NextResponse.redirect('/signin')
     }
+
     return NextResponse.next()
 }

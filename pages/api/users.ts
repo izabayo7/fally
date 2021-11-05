@@ -24,7 +24,7 @@ export default async function Users(req: NextApiRequest, res: NextApiResponse) {
                 .insertOne({ ...req.body, password: await hash(req.body.password), role: 'MEMBER' })
             return res.status(200).json({ success: true, data: new_user })
         case 'GET':
-            let users = await db.collection('users').find().toArray()
+            let users = await db.collection('users').find().sort({ names: 1 }).toArray()
             return res.status(200).json({ success: true, data: users })
         default:
             return res.status(200).json({ message: 'Not supported' })

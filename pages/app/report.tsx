@@ -74,12 +74,12 @@ export default function users({report}) {
 export async function getServerSideProps() {
     let db = await getDatabase()
 
+
     const report = await db.collection('reports').findOne({
-        sabbath_week: getCurrentWeekInTheYear()[1],
+        sabbath_week: getCurrentWeekInTheYear()[1] - 1,
         year: getCurrentWeekInTheYear()[0]
     })
 
-    console.log({report})
 
     return {
         props: {
