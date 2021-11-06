@@ -1,5 +1,7 @@
 export const server =
-    process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : process.env.VERCEL_URL
+    process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3000'
+        : 'https://fally-improved.vercel.app/'
 
 export const getCurrentWeekInTheYear = () => {
     let d = new Date()
