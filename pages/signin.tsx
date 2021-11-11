@@ -18,10 +18,10 @@ export default function Signin() {
             if (resp.status == 201) {
                 setPassword('')
                 setEmail('')
-                router.push('/app')
             }
 
-            console.log(await resp.json())
+            router.push("/app")
+
         } catch (message) {
             alert(message)
         }
@@ -34,13 +34,13 @@ export default function Signin() {
             </Head>
             <section className="grid place-items-center h-screen w-screen">
                 <form
-                    className="shadow-xl w-96 px-8 py-12"
+                    className="w-96 px-8 py-12"
                     onSubmit={(e) => {
                         e.preventDefault()
                         handle_signin()
                     }}
                 >
-                    <h1 className="text-2xl text-center">Signin</h1>
+                    <h1 className="text-2xl text-center font-bold">Signin</h1>
                     <div className="py-5">
                         <label className="block">Email</label>
                         <input
@@ -48,14 +48,14 @@ export default function Signin() {
                             placeholder="Enter your email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="py-4 rounded-sm px-3 w-full border-2 border-gray-900"
+                            className="py-3 rounded-md px-3 w-full border-2 border-gray-900"
                         />
                     </div>
                     <div className="py-5">
                         <label className="block">Password</label>
                         <input
                             type="password"
-                            className="rounded-sm px-3 w-full border-2 border-gray-900 py-4"
+                            className="rounded-md px-3 w-full border-2 border-gray-900 py-3"
                             placeholder="Enter your password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}

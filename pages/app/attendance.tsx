@@ -145,7 +145,7 @@ function Users() {
         <section className="overflow-auto h-screen">
             <table className="table-auto relative w-full border-collapse border border-gray-300 font-primary">
                 <thead >
-                    <tr>
+                    <tr className="border-gray-200 border">
                         <th className="border sticky top-0 border-gray-200 p-4 bg-white">No</th>
                         <th className="border sticky top-0 border-gray-200 p-4 bg-white">Name</th>
                         <th className="border sticky top-0 border-gray-200 p-4 bg-white">Yaje</th>
