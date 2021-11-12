@@ -1,16 +1,16 @@
 import Head from 'next/head'
-import { Fragment } from 'react'
+import {Fragment} from 'react'
 import Nav from '../../components/Nav'
-import useSWR, { SWRConfig } from 'swr'
+import useSWR, {SWRConfig} from 'swr'
 import fetch from '../../lib/fetch'
-import { server } from '../../lib/utils'
-import { User } from '../../lib/types'
+import {server} from '../../lib/utils'
+import {User} from '../../lib/types'
 
 function Users() {
-    const { data } = useSWR<{ data: User[] }>(`${server}/api/users`)
+    const {data} = useSWR<{data: User[]}>(`${server}/api/users`)
 
     return (
-        <section>
+        <section className="pb-10">
             <table className="table-auto border-collapse border border-gray-300">
                 <thead>
                     <tr>
@@ -72,7 +72,7 @@ function Users() {
     )
 }
 
-export default function app({ fallback }) {
+export default function app({fallback}) {
     return (
         <Fragment>
             <Head>
