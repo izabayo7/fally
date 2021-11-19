@@ -1,6 +1,6 @@
+import bcrypt from 'bcryptjs'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { getDatabase } from '../../lib/db'
-import bcrypt from 'bcryptjs'
 
 const hash = async (password: string) => {
     const salt = await bcrypt.genSalt(10)
@@ -8,7 +8,7 @@ const hash = async (password: string) => {
     return hash
 }
 
-export default async function Users(req: NextApiRequest, res: NextApiResponse) {
+export default async function Users (req: NextApiRequest, res: NextApiResponse) {
     let db = await getDatabase()
 
     switch (req.method) {
