@@ -51,9 +51,21 @@ export default function users({report}) {
                             <td className="border border-gray-200 p-4">{item.helped}</td>
                         </tr>
                         <tr>
-                            <td className="border border-gray-200 p-4">Abaje</td>
+                            <td className="border border-gray-200 p-4">Abafashijwe</td>
                             <td className="border border-gray-200 p-4">{item.wereHelped}</td>
                         </tr>
+
+                        <tr>
+                            <td className="border border-gray-200 p-4">Abatangiye isabato</td>
+                            <td className="border border-gray-200 p-4">{item.startedSabbath}</td>
+                        </tr>
+
+
+                        <tr>
+                            <td className="border border-gray-200 p-4">Abize 7</td>
+                            <td className="border border-gray-200 p-4">{item.studied7times}</td>
+                        </tr>
+
                         <tr>
                             <td className="border border-gray-200 p-4">Abashyitsi</td>
                             <td className="border border-gray-200 p-4">{item.vistors}</td>
