@@ -164,7 +164,7 @@ function Users() {
                         <tr key={row._id}>
                             <td className="border border-gray-200 p-4">{index + 1}</td>
                             <td className="border border-gray-200 p-4">{row.names}</td>
-                            <td className="border border-gray-200 p-4">
+                            <td onClick={()=> handlePresence(row._id)} className="border border-gray-200 p-4">
                                 <input
                                     type="checkbox"
                                     className="rounded"
@@ -173,7 +173,7 @@ function Users() {
                                     onChange={() => handlePresence(row._id)}
                                 />
                             </td>
-                            <td className="border border-gray-200 p-4">
+                            <td onClick={()=> handleaway(row._id)} className="border border-gray-200 p-4">
                                 <input
                                     type="checkbox"
                                     className="rounded"
@@ -182,7 +182,7 @@ function Users() {
                                     onChange={() => handleaway(row._id)}
                                 />
                             </td>
-                            <td className="border border-gray-200 p-4">
+                            <td onClick={()=> handleVisit(row._id)} className="border border-gray-200 p-4">
                                 <input
                                     type="checkbox"
                                     className="rounded"
@@ -190,7 +190,7 @@ function Users() {
                                     onChange={() => handleVisit(row._id)}
                                 />
                             </td>
-                            <td className="border border-gray-200 p-4">
+                            <td onClick={()=> handlewasvisted(row._id)} className="border border-gray-200 p-4">
                                 <input
                                     type="checkbox"
                                     className="rounded"
@@ -198,7 +198,7 @@ function Users() {
                                     onChange={() => handlewasvisted(row._id)}
                                 />
                             </td>
-                            <td className="border border-gray-200 p-4">
+                            <td onClick={()=> handleHelp(row._id)} className="border border-gray-200 p-4">
                                 <input
                                     type="checkbox"
                                     className="rounded"
@@ -206,7 +206,7 @@ function Users() {
                                     onChange={() => handleHelp(row._id)}
                                 />
                             </td>
-                            <td className="border border-gray-200 p-4">
+                            <td onClick={()=> handelWasHelped(row._id)} className="border border-gray-200 p-4">
                                 <input
                                     type="checkbox"
                                     className="rounded"
@@ -214,7 +214,7 @@ function Users() {
                                     onChange={() => handelWasHelped(row._id)}
                                 />
                             </td>
-                            <td className="border border-gray-200 p-4">
+                            <td onClick={()=> handleSick(row._id)} className="border border-gray-200 p-4">
                                 <input
                                     type="checkbox"
                                     className="rounded"
@@ -223,7 +223,7 @@ function Users() {
                                     disabled={isPresent(row._id)}
                                 />
                             </td>
-                            <td className="border border-gray-200 p-4">
+                            <td onClick={()=> handleStudied(row._id)} className="border border-gray-200 p-4">
                                 <input
                                     type="checkbox"
                                     className="rounded"
@@ -231,7 +231,7 @@ function Users() {
                                     onChange={() => handleStudied(row._id)}
                                 />
                             </td>
-                            <td className="border border-gray-200 p-4">
+                            <td onClick={()=> handleStarted(row._id)} className="border border-gray-200 p-4">
                                 <input
                                     type="checkbox"
                                     className="rounded"
